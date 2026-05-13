@@ -4,6 +4,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import AddButton from "./addButton";
 import UserPortrait from "./userPortrait";
 import { usePathname, useRouter } from "expo-router";
+import AddMedicine from "@/app/addNewMedicine";
 
 export default function AppHeader() {
     const { colors } = useTheme();
@@ -24,24 +25,31 @@ export default function AppHeader() {
                     justifyContent: 'space-between',
                     alignItems: 'center',
                 }}>
-                    {isHome ? (
-                        <Pressable onPress={() => router.push('/userSettings')}>
-                            <UserPortrait />
-                        </Pressable>) : (
-                        <Pressable 
-                        onPress={() => router.back()}>
-                            <UserPortrait icon='keyboard-backspace' />
-                        </Pressable>
-                    )}
+
+                {isHome ? (
+                    <Pressable onPress={() => router.push('/userSettings')}>
+                        <UserPortrait />
+                    </Pressable>) : (
+                    <Pressable 
+                    onPress={() => router.back()}>
+                        <UserPortrait icon='keyboard-backspace' />
+                    </Pressable>
+                )}
                
                 <Text style={{
                     fontSize: 18,
                     textAlign: "center",
                     color: colors.textPrimary
                 }}>MediTrack</Text>
-                <Pressable onPress={() => router.navigate('/addMedicine')}>
-                    <AddButton  />
-                </Pressable>
+                
+                {isHome ? (
+                    <Pressable onPress={() => router.push('/addNewMedicine')}>
+                        <AddButton />
+                    </Pressable>
+                ) : (
+                    <View style={{ width: 40 }} />
+                )}
+
             </View>
         </SafeAreaView>
     );
