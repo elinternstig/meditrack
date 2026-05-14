@@ -1,18 +1,22 @@
 import React from 'react';
 import { Stack } from 'expo-router';
 import AppHeader from '../components/appHeader'
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { Provider as PaperProvider } from 'react-native-paper';
 
-export default function Layout() {
+export default function App() {
+
   return (
-    <SafeAreaView style={{
+    <SafeAreaProvider style={{
       flex: 1,
     }}>
-      <Stack
-      screenOptions={{
-        header: () => <AppHeader />,
-      }} 
-      />
-    </SafeAreaView>
+      <PaperProvider>
+        <Stack
+        screenOptions={{
+          header: () => <AppHeader />,
+        }} 
+        />
+      </PaperProvider>
+    </SafeAreaProvider>
   );
 }
