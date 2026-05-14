@@ -48,3 +48,25 @@ To learn more about developing your project with Expo, look at the following res
 - [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
 - [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
 
+
+The Expo Go app from Play store and App Store is using expo version 54 while the newest version that can be used on web is version 55. To use the Expo Go App you need to downgrade to expo version 54
+Follow these steps
+
+Check your Expo version(you want to to be 54.x.x)
+- 'npx expo --version'
+
+If the version is not 54
+In the terminal write
+- 'npx expo install expo@54.0.0'
+Then 
+- 'npx expo install --fix'
+Then
+- 'npx expo install react react-native'
+
+Remove or make sure node_modules and package-ock.json is removed
+Then
+-'npm install'
+Then
+-'npx expo start --clear'
+
+Good to go!
